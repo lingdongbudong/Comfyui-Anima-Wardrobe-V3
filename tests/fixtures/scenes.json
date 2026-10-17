@@ -1,0 +1,7150 @@
+{
+ "available": true,
+ "meta": {
+  "schema": "anima-wardrobe-v3/scenes@1",
+  "built_by": "tools/build_scenes.py（校验 + 派生 level，可重复跑）",
+  "title": "场景搭配预设库",
+  "source_doc": "S:/ComfyUI/ANIMA3提示词优化专家-完整文档.md（§5 决策树 5.1–5.7 / §9.6 动作氛围链 / §11.5 体位专属镜头 / §14 十二个跨槽位配方）",
+  "rules": [
+   "每个预设是一份**跨槽位固定组合**：tags 里的字段被预设写死，不参与随机（随机只作用于这里没写的字段）。",
+   "⚠️ 预设**绝不写 count / role**：人数与角色是「地基」，由用户选择或按人数组合自动抽 —— 预设抢这两个字段会让「选了双女却只有 1 个角色」这类矛盾复现。",
+   "⚠️ tags 的值必须是该字段**真实存在的选项原文**；extra 是附加标签串（逐标签过档位闸门）。",
+   "level 由 tools/build_scenes.py 按内容派生（取所有标签里最高档），**不要手改**。",
+   "id 是内部主键（`sc_*`），用于权重表与收藏；**不会出现在正文里**（见 anima_v3_rules._NO_EMIT_FIELDS）。"
+  ],
+  "counters": {
+   "scenes": 122,
+   "groups": 2,
+   "by_group": {
+    "sfw": 69,
+    "nsfw": 53
+   },
+   "by_level": {
+    "0": 30,
+    "1": 38,
+    "2": 16,
+    "3": 29,
+    "4": 9
+   }
+  },
+  "levels_note": "level 由 tools/build_scenes.py 按内容派生，勿手改；= max(各字段值的准入档位, extra 各标签档位)"
+ },
+ "groups": [
+  {
+   "id": "sfw",
+   "title": "🏙 全年龄场景搭配",
+   "desc": "姿势 / 场景 / 表情 / 光影 / 镜头 的固定组合，任何档位都能用"
+  },
+  {
+   "id": "nsfw",
+   "title": "🔞 NSFW 跨槽位配方",
+   "desc": "按文档 §14 的十二类主题改写：档位 ≥ 2 起可用，内容一致地固定"
+  }
+ ],
+ "level_groups": [
+  {
+   "num": 0,
+   "key": "sfw",
+   "title": "0 · 全年龄",
+   "desc": "无任何暴露向标签",
+   "count": 30
+  },
+  {
+   "num": 1,
+   "key": "suggestive",
+   "title": "1 · 擦边",
+   "desc": "轻度暗示：露肩 / 短裙 / 内衣轮廓 / 材质诱惑",
+   "count": 38
+  },
+  {
+   "num": 2,
+   "key": "explicit",
+   "title": "2 · 成人",
+   "desc": "明显裸露或透视：全裸 / 性器官 / 乳头 / 内衣外露 / 半脱",
+   "count": 16
+  },
+  {
+   "num": 3,
+   "key": "hardcore",
+   "title": "3 · 过激",
+   "desc": "性行为 / 性道具 / 体液 / 束缚调教",
+   "count": 29
+  },
+  {
+   "num": 4,
+   "key": "extreme",
+   "title": "4 · 极端",
+   "desc": "群体 → 极端插入扩张 / 拘束装置 / 极限体液 / 主奴标记",
+   "count": 9
+  }
+ ],
+ "scenes": [
+  {
+   "id": "sc_rain_street_lookback",
+   "zh": "雨中街头 · 回眸",
+   "group": "sfw",
+   "theme": "夜景",
+   "desc": "霓虹雨夜，走在中途回头看镜头一眼",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "street",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "rain",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "neon lights",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "motion blur",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    }
+   ],
+   "extra": "rain drops, rain puddle, reflection",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_classroom_chin_rest",
+   "zh": "教室午后 · 托腮",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "课桌前的安静午后，托腮看镜头",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "classroom",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "head rest",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "desk",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking at viewer",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "school uniform",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "tucked in",
+     "level": 0
+    }
+   ],
+   "extra": "afternoon light, quiet",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_rooftop_stretch",
+   "zh": "天台黄昏 · 伸懒腰",
+   "group": "sfw",
+   "theme": "户外",
+   "desc": "逆光的仰拍，栏杆边伸展身体",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "rooftop",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "sunset",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "railing",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "negative space",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "stretching",
+     "level": 1
+    }
+   ],
+   "extra": "wind, long shadow",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_library_quiet",
+   "zh": "图书馆 · 静读",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "书架侧光，坐姿、表情收敛",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "library",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bookshelf",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "own hands clasped",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "closed mouth",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    }
+   ],
+   "extra": "dust in light, silence",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_cafe_window_rain",
+   "zh": "咖啡馆 · 窗边落雨",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "大落地窗 + 雨，手托脸颊望外",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "cafe",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "large window",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "rain",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sad",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "depth of field, blurry background",
+     "level": 0
+    }
+   ],
+   "extra": "rain on glass, steam, warm interior",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_shrine_walk",
+   "zh": "神社参道 · 和服漫步",
+   "group": "sfw",
+   "theme": "和风",
+   "desc": "樱花参道，侧向行走",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "shrine",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "cherry blossoms",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "walking",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "yukata",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    }
+   ],
+   "extra": "stone lantern, torii, petals",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_beach_midsummer",
+   "zh": "海边盛夏",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "正午硬光 + 体积光，单手叉腰",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "beach",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own hip",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smile",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "one-piece swimsuit",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    }
+   ],
+   "extra": "waves, splashing water, sunscreen",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_stairwell_up",
+   "zh": "楼梯间 · 仰视回望",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "从下往上拍，中途停下回头",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "stairwell",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "railing",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "rim lighting",
+     "level": 0
+    }
+   ],
+   "extra": "long staircase, handrail",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_morning_window",
+   "zh": "晨光 · 倚窗初醒",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "晨光斜射，倚窗、半睁眼",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "large window",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sleepy",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "parted lips",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "cloth_mat",
+     "lab": "材质",
+     "en": "chiffon",
+     "level": 0
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "necklace",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "depth of field, blurry background",
+     "level": 0
+    }
+   ],
+   "extra": "lace curtain, dust motes",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_onsen_steam",
+   "zh": "温泉 · 月下蒸汽",
+   "group": "sfw",
+   "theme": "和风",
+   "desc": "背对镜头的坐姿 + 浓蒸汽",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "onsen",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "moonlight",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "depth of field, blurry background",
+     "level": 0
+    }
+   ],
+   "extra": "hot spring, stone edge, mist",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_pov_hands_selfie",
+   "zh": "第一人称 · 手持自拍",
+   "group": "sfw",
+   "theme": "第一人称",
+   "desc": "POV 手部入镜的街头自拍",
+   "level": 0,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "pov hands",
+     "level": 0
+    },
+    {
+     "field": "device",
+     "lab": "设备质感",
+     "en": "selfie",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "street",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "v",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smile",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    }
+   ],
+   "extra": "hand holding phone, looking at viewer",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_train_home",
+   "zh": "电车归途",
+   "group": "sfw",
+   "theme": "出行",
+   "desc": "黄昏车窗侧光，坐姿打盹",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "train interior",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "sunset",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "own hands clasped",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sleepy",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "window",
+     "level": 0
+    }
+   ],
+   "extra": "moving train, blurred window",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_snow_field_scarf",
+   "zh": "雪原 · 围巾",
+   "group": "sfw",
+   "theme": "冬",
+   "desc": "低温冷调，抱臂缩肩",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "field",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "snow",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "crossed arms",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "surprised",
+     "level": 0
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "scarf",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "negative space",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    }
+   ],
+   "extra": "breath visible, snowflakes",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_fisheye_room",
+   "zh": "鱼眼 · 室内广角",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "鱼眼极广角，夸张透视",
+   "level": 0,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "fisheye",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "grin",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    }
+   ],
+   "extra": "distorted perspective, wide field of view",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_dutch_alley_night",
+   "zh": "斜角小巷 · 夜",
+   "group": "sfw",
+   "theme": "夜景",
+   "desc": "荷兰角 + 霓虹，靠墙不悦",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "alley",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "dutch angle",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "pout",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "neon lights",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    }
+   ],
+   "extra": "damp wall, sign light",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_mirror_dressing",
+   "zh": "镜前 · 整装",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "镜面反射，手拢头发",
+   "level": 0,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "mirror, reflection",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    }
+   ],
+   "extra": "vanity table, seen from mirror",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_panorama_park",
+   "zh": "公园 · 全景落叶",
+   "group": "sfw",
+   "theme": "户外",
+   "desc": "全景广角 + 留白，人物入画小",
+   "level": 0,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "panorama",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "park",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "falling leaves",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "wide shot",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "negative space",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    }
+   ],
+   "extra": "autumn, wide landscape, scale",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_plain_daily",
+   "zh": "另类日常 · 商店",
+   "group": "nsfw",
+   "theme": "另类日常",
+   "desc": "文档 §14.10：日常场景 + 无表情的随意露出",
+   "level": 2,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "convenience store",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "see-through",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "nipple slip",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "studio lighting",
+     "level": 0
+    }
+   ],
+   "extra": "casual nudity, everyday life, plain",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_ntr_phone",
+   "zh": "NTR · 通话中被侵",
+   "group": "nsfw",
+   "theme": "NTR",
+   "desc": "文档 §14.1 电话NTR：一只手捂着嘴，电话还在通话",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "sex from behind",
+     "level": 3
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "netorare",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "bent over",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "partially undressed",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hotel room",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "biting own lip",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "covering own mouth",
+     "level": 0
+    }
+   ],
+   "extra": "talking on phone, stealth sex, guilty pleasure, phone screen visible",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_ntr_window",
+   "zh": "NTR · 窗外直视",
+   "group": "nsfw",
+   "theme": "NTR",
+   "desc": "文档 §14.1 窗外NTR：从外往里拍，窗内正在发生",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "sex from behind",
+     "level": 3
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "netorare",
+     "level": 3
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    }
+   ],
+   "extra": "from outside, through window, peeping, cuckold, forced to watch",
+   "extra_count": 5
+  },
+  {
+   "id": "sc_ccc_bdsm_shibari",
+   "zh": "束缚 · 日式绳艺",
+   "group": "nsfw",
+   "theme": "BDSM",
+   "desc": "文档 §14.2 日式后手缚：跪姿 + 绳痕",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "shibari",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "kneeling",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "arms behind back",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "tears",
+     "level": 2
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "hemp rope, red rope, rope marks, bound torso, helpless",
+   "extra_count": 5
+  },
+  {
+   "id": "sc_ccc_bdsm_gag",
+   "zh": "束缚 · 口球垂涎",
+   "group": "nsfw",
+   "theme": "BDSM",
+   "desc": "文档 §14.2 口具拘束：口球 + 垂涎 + 腕缚",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "gag ball",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "kneeling",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "arms behind back",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "saliva string",
+     "level": 2
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "choker",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    }
+   ],
+   "extra": "drooling, bound wrists, gagged",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_rbq_wall",
+   "zh": "RBQ · 壁尻共用",
+   "group": "nsfw",
+   "theme": "RBQ",
+   "desc": "文档 §14.3 壁尻：只露出一半身体被使用",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "sex from behind",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "all fours, sex",
+     "level": 3
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "mind break",
+     "level": 3
+    },
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "bukkake",
+     "level": 4
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "alley",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "glory hole, through wall, public use, objectification",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_futanari",
+   "zh": "男娘 / Futa",
+   "group": "nsfw",
+   "theme": "男娘Futa",
+   "desc": "文档 §14.4：扶她体格 + 乳交",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "futanari",
+     "level": 3
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "paizuri",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "figure",
+     "lab": "身材轮廓",
+     "en": "large breasts",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "futanari, penis, testicles, between breasts",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_tentacle",
+   "zh": "异种 · 触手",
+   "group": "nsfw",
+   "theme": "异种",
+   "desc": "文档 §14.5：被触手缠住、身体失控",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "tentacles",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "legs up",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "body writhe",
+     "level": 3
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "love juice trail",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "forest",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "fog",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "tentacles, restrained, aphrodisiac, non-human",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_pet_play",
+   "zh": "调教 · 宠物",
+   "group": "nsfw",
+   "theme": "调教",
+   "desc": "文档 §14.6：项圈牵绳 + 爬行服从",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "collar and leash",
+     "level": 4
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "all fours",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "choker",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "tongue out",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    }
+   ],
+   "extra": "pet play, leash, crawling, collar",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_coerce_wall",
+   "zh": "胁迫 · 压墙站立",
+   "group": "nsfw",
+   "theme": "胁迫",
+   "desc": "文档 §14.7：无路可退的站位 + 泪眼",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "standing sex",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "against wall, sex",
+     "level": 3
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "partially undressed",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hallway",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "power dynamics, coercion, cornered, no escape",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_voyeur_cam",
+   "zh": "偷窥 · 监控视角",
+   "group": "nsfw",
+   "theme": "偷窥",
+   "desc": "文档 §14.8：监控画质感 + 半脱自慰",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "see-through",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "nipple slip",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "device",
+     "lab": "设备质感",
+     "en": "security camera footage",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hotel room",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    }
+   ],
+   "extra": "hidden camera, peeping, recording, unaware",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_afterglow",
+   "zh": "事后 · 余韵",
+   "group": "nsfw",
+   "theme": "事后",
+   "desc": "文档 §14.9：无性行为标签，重残留与情绪",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "after sex",
+     "level": 2
+    },
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "cum overflow",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on side",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sleepy",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    }
+   ],
+   "extra": "exhausted, messy hair, sweat, lingering",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_hidden_sex",
+   "zh": "隐奸 · 被子下",
+   "group": "nsfw",
+   "theme": "隐奸",
+   "desc": "文档 §14.12：隔墙/被下的隐忍，只做暗示",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "sex from behind",
+     "level": 3
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "biting own lip",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "top-down bottom-up",
+     "level": 1
+    }
+   ],
+   "extra": "under covers, implied sex, stealth sex, quiet",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_mating_press",
+   "zh": "种付位 · 压制",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.6 + 法典 c11：折叠压制 + 内射",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "mating press",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "legs up",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "close-up",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "creampie",
+     "level": 3
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "orgasm, trembling",
+     "level": 3
+    }
+   ],
+   "extra": "boy on top, deep penetration, folded, on back",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_dp_group",
+   "zh": "群体 · 双管齐下",
+   "group": "nsfw",
+   "theme": "群体",
+   "desc": "文档 §9.4/§14.3：多孔穴占用 + 极限体液",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "double penetration",
+     "level": 4
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "spread legs",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "fucked silly",
+     "level": 3
+    },
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "bukkake",
+     "level": 4
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "two boys, spitroast, group sex, surrounded",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_pov_crotch_self",
+   "zh": "第一人称 · 俯视自身",
+   "group": "nsfw",
+   "theme": "第一人称",
+   "desc": "用 v3.8.0 新词条：POV 直视自身（成人档起）",
+   "level": 2,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "pov crotch",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    }
+   ],
+   "extra": "first-person view, own body, looking down at self",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_classroom_afterschool",
+   "zh": "教室 · 放学后",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "空教室 + 斜阳，坐在课桌上",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "classroom",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "sunset",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "desk",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "dutch angle",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "negative space",
+     "level": 0
+    }
+   ],
+   "extra": "empty classroom, long shadow, after school",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_office_overtime",
+   "zh": "办公室 · 加班夜",
+   "group": "sfw",
+   "theme": "职场",
+   "desc": "台灯 + 深夜，OL 伏案",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "office",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "desk lamp",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sleepy",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "office lady",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "depth of field, blurry background",
+     "level": 0
+    }
+   ],
+   "extra": "overtime, coffee cup, tired",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_convenience_night",
+   "zh": "便利店 · 夜班",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "自动贩卖机前的霓虹夜",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "convenience store",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "vending machine",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own hip",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "neon lights",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    }
+   ],
+   "extra": "fluorescent light, night shift",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_balcony_night",
+   "zh": "阳台 · 星空",
+   "group": "sfw",
+   "theme": "夜景",
+   "desc": "栏杆边抬头看星",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "balcony",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "starry sky",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "railing",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sad",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "moonlight",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "negative space",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    }
+   ],
+   "extra": "city night, wind, looking up",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_changing_room",
+   "zh": "更衣室 · 换装",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "体操服与更衣室，手拽衣领",
+   "level": 2,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "changing room",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "studio lighting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "gym uniform",
+     "level": 0
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "necklace",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "clothes pull",
+     "level": 2
+    }
+   ],
+   "extra": "locker, bench, fabric",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_fitting_room",
+   "zh": "试衣间 · 镜前",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "镜前打量，微微嘟嘴",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "fitting room",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "pout",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "camisole dress",
+     "level": 0
+    }
+   ],
+   "extra": "curtain, mirror reflection, tags",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_elevator_ride",
+   "zh": "电梯里 · 静默",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "俯拍电梯内的静默对望",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "elevator",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "studio lighting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "comp",
+     "lab": "构图",
+     "en": "symmetry",
+     "level": 0
+    }
+   ],
+   "extra": "elevator, closed space, indicator light",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_car_ride",
+   "zh": "车后座 · 黄昏",
+   "group": "sfw",
+   "theme": "出行",
+   "desc": "车窗逆光，靠着睡",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "car interior",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "sunset",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "sleepy",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "window",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking away",
+     "level": 0
+    }
+   ],
+   "extra": "moving car, blurred window, seatbelt",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_flower_field",
+   "zh": "花田 · 旋转",
+   "group": "sfw",
+   "theme": "户外",
+   "desc": "逆光花田里转圈",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "flower field",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "cherry blossoms",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "spinning",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "dress",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smile",
+     "level": 0
+    }
+   ],
+   "extra": "petals in air, sunlight",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_movie_theater",
+   "zh": "电影院 · 暗场",
+   "group": "sfw",
+   "theme": "约会",
+   "desc": "暗场侧拍，银幕光打脸",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "movie theater",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    }
+   ],
+   "extra": "screen glow, popcorn, dark",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_amusement_night",
+   "zh": "游乐园 · 夜场",
+   "group": "sfw",
+   "theme": "约会",
+   "desc": "霓虹夜场，跳起来的瞬间",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "amusement park",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "neon lights",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "v",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "grin",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "jumping",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    }
+   ],
+   "extra": "ferris wheel, fairground lights, motion",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_forest_fog",
+   "zh": "森林 · 晨雾",
+   "group": "sfw",
+   "theme": "户外",
+   "desc": "背对镜头走在雾里",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "forest",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "fog",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "walking",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    }
+   ],
+   "extra": "light through trees, mist, leaves",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_poolside_summer",
+   "zh": "泳池边 · 盛夏",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "池边蹲姿 + 硬光",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "poolside",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "competitive swimsuit",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "squatting",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smile",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    }
+   ],
+   "extra": "water surface, caustics, towel",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_bathroom_mirror",
+   "zh": "浴室 · 蒸汽镜前",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "蒸汽弥漫的镜前",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bathroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "mirror, reflection",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    },
+    {
+     "field": "accessory",
+     "lab": "配饰",
+     "en": "necklace",
+     "level": 0
+    }
+   ],
+   "extra": "fogged mirror, warm tiles",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_under_shower",
+   "zh": "淋浴下 · 闭眼",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "水声里闭眼仰头",
+   "level": 0,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "showering",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "closed eyes",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "upper body",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    }
+   ],
+   "extra": "running water, steam, tiles",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_missionary",
+   "zh": "传教士 · 标准位",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.1：腿态 + 压制",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "missionary",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "spread legs",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    }
+   ],
+   "extra": "boy on top, deep penetration, facing each other",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_doggystyle",
+   "zh": "后入跪位",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.4：四肢着地被进入",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "doggystyle",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "all fours, sex",
+     "level": 3
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "covering own mouth",
+     "level": 0
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    }
+   ],
+   "extra": "sex from behind, arched back, grip on hips",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_cowgirl",
+   "zh": "骑乘位 · 女方在上",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.7：跨坐主导",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "cowgirl position",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "girl on top",
+     "level": 3
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "orgasm, trembling",
+     "level": 3
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    }
+   ],
+   "extra": "straddling, hands on chest, sweat",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_stand_carry",
+   "zh": "站立抱起",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.2：被整个抱起来的站立位",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "stand and carry",
+     "level": 3
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "partially undressed",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "panting",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hallway",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "arms behind back",
+     "level": 0
+    }
+   ],
+   "extra": "carried, against wall, weightless",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_clothed_sex",
+   "zh": "衣着性交",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "衣物没脱干净的办公室",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "clothed sex",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "shirt lift",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "bent over",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "office",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "office lady",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "unbuttoned collar",
+     "level": 1
+    }
+   ],
+   "extra": "partially clothed, desk edge, hurried",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_footjob",
+   "zh": "足交",
+   "group": "nsfw",
+   "theme": "前戏",
+   "desc": "文档 §9.2.2：腿上角色与足部状态",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "footjob",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "n_shoes_keep",
+     "lab": "保留单品",
+     "en": "fishnet stockings",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "leg",
+     "lab": "腿部线条",
+     "en": "long legs",
+     "level": 0
+    },
+    {
+     "field": "socks",
+     "lab": "腿上",
+     "en": "fishnet thighhighs",
+     "level": 0
+    }
+   ],
+   "extra": "feet focus, soles, toes",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_paizuri",
+   "zh": "乳交",
+   "group": "nsfw",
+   "theme": "前戏",
+   "desc": "文档 §9.2.5：乳间夹持 + 颜射收尾",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "paizuri",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "close-up",
+     "level": 0
+    },
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "cum on breasts",
+     "level": 2
+    },
+    {
+     "field": "figure",
+     "lab": "身材轮廓",
+     "en": "large breasts",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    }
+   ],
+   "extra": "between breasts, looking up, hands pressing",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_facesitting",
+   "zh": "颜骑",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "上位压制视角",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "facesitting",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "straddling",
+     "level": 3
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "bedroom eyes",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    }
+   ],
+   "extra": "sitting on face, thighs, weight",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_anal",
+   "zh": "肛交",
+   "group": "nsfw",
+   "theme": "双人正戏",
+   "desc": "文档 §9.3.4 变体：后穴 + 润滑",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "anal",
+     "level": 3
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "all fours, sex",
+     "level": 3
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "anus",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "body writhe",
+     "level": 3
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "love juice trail",
+     "level": 2
+    }
+   ],
+   "extra": "lubricant, gaping, arched",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ccc_ntr_split",
+   "zh": "NTR · 分屏对照",
+   "group": "nsfw",
+   "theme": "NTR",
+   "desc": "文档 §14.1 分屏NTR：左边通话、右边进行中",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "netorare",
+     "level": 3
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "sex from behind",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "partially undressed",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "bedroom eyes",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "split screen, left: chatting on phone, right: sex from behind, netorare",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_bdsm_pillory",
+   "zh": "束缚 · 示众柱",
+   "group": "nsfw",
+   "theme": "BDSM",
+   "desc": "文档 §14.2 柱缚示众：公开曝露 + 绳痕",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "shibari",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "all fours",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "arms behind back",
+     "level": 0
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "tears",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "alley",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "pillory, public display, humiliation, audience, rope marks",
+   "extra_count": 5
+  },
+  {
+   "id": "sc_ccc_rbq_after",
+   "zh": "物化 · 事后残骸",
+   "group": "nsfw",
+   "theme": "RBQ",
+   "desc": "文档 §14.3 事后残骸：用量与痕迹为主",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_cum",
+     "lab": "精液表现",
+     "en": "excessive cum",
+     "level": 4
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "mind break",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "lying",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "used goods, cum pool, exhausted, broken in, after use",
+   "extra_count": 5
+  },
+  {
+   "id": "sc_ccc_femdom_reverse",
+   "zh": "攻守反转 · 压制骑乘",
+   "group": "nsfw",
+   "theme": "攻守反转",
+   "desc": "文档 §9.3.10：女方主导、男方被压",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "cowgirl position",
+     "level": 3
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "strap-on",
+     "level": 3
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "bedroom eyes",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "grin",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    }
+   ],
+   "extra": "dominatrix, pegging, smug, submission",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_pov_oral",
+   "zh": "第一人称 · 口交",
+   "group": "nsfw",
+   "theme": "第一人称",
+   "desc": "用 v3.8.0 的第一人称词条：仰视视角",
+   "level": 3,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "pov, fellatio",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking up",
+     "level": 0
+    }
+   ],
+   "extra": "first-person view, penis, looking up, hands on thighs",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_ccc_pov_cowgirl",
+   "zh": "第一人称 · 骑乘",
+   "group": "nsfw",
+   "theme": "第一人称",
+   "desc": "用 v3.8.0 的第一人称词条：仰躺视角",
+   "level": 3,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "pov, cowgirl position",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "covering own mouth",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "straddling",
+     "level": 3
+    }
+   ],
+   "extra": "first-person view, straddling, looking down at viewer",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_poolside_microbikini",
+   "zh": "泳池 · 微距比基尼（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "擦边档的泳装特写：裁剪面料 + 俯拍",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "poolside",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "micro bikini",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "god rays",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "sunbathing, sunscreen, water surface",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_offshoulder_night",
+   "zh": "露肩 · 夜窗（擦边）",
+   "group": "sfw",
+   "theme": "夜景",
+   "desc": "擦边档的露肩夜景：月光 + 侧拍",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "off shoulder",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "moonlight",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "cloth_mat",
+     "lab": "材质",
+     "en": "silk",
+     "level": 0
+    }
+   ],
+   "extra": "starlight, curtain, bare shoulder",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_panties_aside",
+   "zh": "自慰 · 拉开内裤展示",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "用户示例①：拉开内裤露出下体展示（无行为）",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "pulled by self",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "panties aside",
+     "level": 2
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "clitoris",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "biting own lip",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    }
+   ],
+   "extra": "solo, holding own leg, legs apart, looking down at self",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_skirt_vacuum",
+   "zh": "自慰 · 裙下真空",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "裙下没穿内裤，坐着夹腿",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "no panties under skirt",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "crossed legs",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "closed mouth",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "classroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "chair",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    }
+   ],
+   "extra": "solo, under skirt, skirt lift",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_mirror_check",
+   "zh": "自慰 · 镜前检视",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "对镜打量自己的下体",
+   "level": 2,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "mirror, reflection",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "hairless pussy",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bathroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "expressionless",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    }
+   ],
+   "extra": "solo, looking at self, legs apart",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_bath_recline",
+   "zh": "自慰 · 浴缸开腿",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "浴缸里仰躺开腿",
+   "level": 2,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "in bathtub",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "pubic hair",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    }
+   ],
+   "extra": "solo, bath, water, legs apart",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_sofa_pull",
+   "zh": "自慰 · 沙发褪内裤",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "沙发上把内裤褪到腿上",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "pulled by self",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "panties pulled down",
+     "level": 2
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "clitoris",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "couch",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "parted lips",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    }
+   ],
+   "extra": "solo, hand on own thigh, looking down at self",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_office_night",
+   "zh": "自慰 · 加班夜桌前",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "深夜办公室，隔着衣服摸",
+   "level": 2,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "office",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "night",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "desk lamp",
+     "level": 0
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "clothes pull",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "panties aside",
+     "level": 2
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "office lady",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "biting own lip",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "warm lighting",
+     "level": 0
+    }
+   ],
+   "extra": "solo, overtime, hand on own thigh, under skirt",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_fingers_bed",
+   "zh": "自慰 · 床上手指",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "躺着用手指自慰",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "fingering",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "half-closed eyes",
+     "level": 0
+    },
+    {
+     "field": "dof",
+     "lab": "景深",
+     "en": "focus on face",
+     "level": 0
+    }
+   ],
+   "extra": "solo, hand on own thigh, arched back, trembling",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_dildo_ride",
+   "zh": "自慰 · 假阳具骑乘",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "用户示例②：跨坐在假阳具上骑乘",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "dildo riding",
+     "level": 2
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "dildo",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "squatting cowgirl position",
+     "level": 3
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "solo, holding sex toy, riding, hands on bed",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_vibrator_covers",
+   "zh": "自慰 · 被下震动棒",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "被子里用震动棒",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "vibrator",
+     "level": 3
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on side",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "closed eyes",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "dark background",
+     "level": 0
+    }
+   ],
+   "extra": "solo, under covers, blanket, holding sex toy",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_mirror_watch",
+   "zh": "自慰 · 镜前自慰",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "站在镜前，看着自己动手",
+   "level": 2,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "mirror, reflection",
+     "level": 0
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bathroom",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "bedroom eyes",
+     "level": 2
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "covering own mouth",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "soft lighting",
+     "level": 0
+    }
+   ],
+   "extra": "solo, looking at self, standing",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_pov_self",
+   "zh": "自慰 · 第一人称自身",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "第一人称俯视自己动手",
+   "level": 2,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "pov crotch",
+     "level": 2
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "bottomless",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "parted lips",
+     "level": 0
+    }
+   ],
+   "extra": "solo, first-person view, own hands, looking down at self",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_clothed",
+   "zh": "自慰 · 衣着自慰",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "更衣室里隔着体操服摸",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "clothes pull",
+     "level": 2
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "gym uniform",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "squatting",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "changing room",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "leg",
+     "lab": "腿部线条",
+     "en": "thigh gap",
+     "level": 1
+    }
+   ],
+   "extra": "solo, through clothes, hand on own thigh",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_bathtub_water",
+   "zh": "自慰 · 浴缸水流",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "浴缸里借水流",
+   "level": 3,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "in bathtub",
+     "level": 0
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "body writhe",
+     "level": 3
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    }
+   ],
+   "extra": "solo, water, bath, arched back",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_shower_stand",
+   "zh": "自慰 · 淋浴站立",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "淋浴间靠着墙",
+   "level": 3,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "showering",
+     "level": 0
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "orgasm, trembling",
+     "level": 3
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    }
+   ],
+   "extra": "solo, water, steam, arched back",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_plug_rear",
+   "zh": "自慰 · 后穴玩具",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "四肢着地用后穴玩具",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "butt plug",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_body",
+     "lab": "私密细节",
+     "en": "anus",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "all fours",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "love juice trail",
+     "level": 2
+    }
+   ],
+   "extra": "solo, holding sex toy, anal, rear",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_toys_show",
+   "zh": "自慰 · 玩具展示",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "跪在床上举着玩具给人看",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "sex toys",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "topless",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "nipples",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "kneeling",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "biting own lip",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "own hands clasped",
+     "level": 0
+    }
+   ],
+   "extra": "solo, holding sex toy, presenting toy",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_continuous",
+   "zh": "自慰 · 连续到失神",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "连续多次后翻白眼失神",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "ahegao, rolled back eyes",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "tongue out",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "half-closed eyes",
+     "level": 0
+    }
+   ],
+   "extra": "solo, after masturbation, trembling, exhausted",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_blindfold_toy",
+   "zh": "自慰 · 蒙眼触感",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "蒙着眼只靠触感",
+   "level": 3,
+   "fields": [
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "blindfold",
+     "level": 3
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "aroused",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "parted lips",
+     "level": 0
+    }
+   ],
+   "extra": "solo, blindfolded, sex toy, trembling",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_mutual",
+   "zh": "自慰 · 双人互慰",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "两人并排互相抚慰（本条不写 solo，需选双人人数）",
+   "level": 2,
+   "fields": [
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "mutual masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "moaning",
+     "level": 2
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    }
+   ],
+   "extra": "mutual masturbation, hands on each other, side by side",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_msb_squirt_fingers",
+   "zh": "自慰 · 手指潮吹",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "用手指把自己弄到喷潮",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "squirting",
+     "level": 4
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "fingering",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "spread legs",
+     "level": 2
+    },
+    {
+     "field": "n_exposure",
+     "lab": "暴露重点",
+     "en": "pussy",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "bed sheet",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    }
+   ],
+   "extra": "solo, squirting, liquid spray, arched back",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_squirt_dildo",
+   "zh": "自慰 · 假阳具潮吹",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "骑着假阳具喷出来",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "squirting",
+     "level": 4
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "dildo riding",
+     "level": 2
+    },
+    {
+     "field": "n_theme",
+     "lab": "主题元素",
+     "en": "dildo",
+     "level": 3
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_pos",
+     "lab": "体态细节",
+     "en": "squatting cowgirl position",
+     "level": 3
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "open mouth",
+     "level": 0
+    }
+   ],
+   "extra": "solo, squirting, holding sex toy, liquid spray",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_msb_squirt_after",
+   "zh": "自慰 · 潮吹失神",
+   "group": "nsfw",
+   "theme": "自慰",
+   "desc": "潮吹后瘫软失神",
+   "level": 4,
+   "fields": [
+    {
+     "field": "n_orgasm",
+     "lab": "高潮表现",
+     "en": "squirting",
+     "level": 4
+    },
+    {
+     "field": "n_act",
+     "lab": "性行为",
+     "en": "masturbation",
+     "level": 2
+    },
+    {
+     "field": "n_state",
+     "lab": "脱卸程度",
+     "en": "completely nude",
+     "level": 2
+    },
+    {
+     "field": "n_fluid",
+     "lab": "其他体液",
+     "en": "pussy juice",
+     "level": 2
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "mouth",
+     "lab": "嘴部",
+     "en": "tongue out",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "tears",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "half-closed eyes",
+     "level": 0
+    }
+   ],
+   "extra": "solo, after masturbation, trembling, liquid spray",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_changing_room_peek",
+   "zh": "更衣间 · 拉帘半掩（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "试衣间里裙摆与肩带的分寸感",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "changing room",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "dress",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "skirt pull",
+     "level": 1
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "clothes rack, mirror",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_bedroom_sleepshirt",
+   "zh": "卧室 · 宽松睡衫（擦边）",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "过大的男款衬衫与光腿的对比",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bedroom",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "off-shoulder sweater",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "short shorts",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on bed",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hugging own legs",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking at viewer",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "bed sheets, morning light",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_bath_towel",
+   "zh": "浴后 · 裹巾湿发（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "浴巾与蒸汽,肩颈线条",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "bathroom",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "off shoulder",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "steam",
+     "level": 0
+    }
+   ],
+   "extra": "towel, wet hair, water drops",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_balcony_laundry",
+   "zh": "阳台 · 晾衣弯腰（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "俯拍视角下的领口走光瞬间",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "balcony",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "tank top",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "short shorts",
+     "level": 1
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "bent over",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "bird's eye view",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    }
+   ],
+   "extra": "laundry, towels on the line",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_rain_wetshirt",
+   "zh": "雨中 · 透衫回眸（擦边）",
+   "group": "sfw",
+   "theme": "户外",
+   "desc": "淋湿的衬衫贴在身上",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "street",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "shirt",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "skirt",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "rain",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "oversized clothes",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hair flip",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking back",
+     "level": 0
+    }
+   ],
+   "extra": "wet hair, umbrella, puddle",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_sofa_catnap",
+   "zh": "沙发 · 抱枕小憩（擦边）",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "睡姿下滑落的肩带",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "apartment",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "camisole dress",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "lying",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "sleeping",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "cushion, blanket, cat",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_konbini_midnight",
+   "zh": "便利店 · 深夜值班（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "冰柜冷光下的制服与热裤",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "convenience store",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "police uniform",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "short shorts",
+     "level": 1
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leaning forward",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "rim lighting",
+     "level": 0
+    }
+   ],
+   "extra": "refrigerator, midnight",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_kitchen_apron",
+   "zh": "厨房 · 围裙裸臂（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "只穿围裙的背面轮廓",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "kitchen",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leaning forward",
+     "level": 1
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "office lady",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "apron, cooking",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_skirt_wind",
+   "zh": "路上 · 风掀裙摆（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "双手按裙的经典瞬间",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "street",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "sailor shirt",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "pleated skirt",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "skirt pull",
+     "level": 1
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "wind",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "surprised",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "walking",
+     "level": 0
+    }
+   ],
+   "extra": "pleated skirt, wind",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_hotel_mirror",
+   "zh": "旅馆 · 镜前自照（擦边）",
+   "group": "sfw",
+   "theme": "室内",
+   "desc": "镜面反射的双重视角",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hotel room",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "camisole dress",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hands on own thighs",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "prop",
+     "lab": "环境元素",
+     "en": "mirror",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "mirror reflection, hotel",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_beach_volley",
+   "zh": "沙滩排球 · 跃起扣杀（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "比基尼与沙粒的动感",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "beach",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "bikini",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "jumping",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leg up",
+     "level": 1
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "volleyball, sand, sweat",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_pool_ladder",
+   "zh": "泳池阶梯 · 出水瞬间（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "水珠沿腿滑落的慢镜",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "poolside",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "competitive swimsuit",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hair flip",
+     "level": 1
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "water drop",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "pool ladder, wet hair",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_surf_board",
+   "zh": "冲浪 · 拖板归岸（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "湿身泳衣与冲浪板的剪影",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "beach",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "one-piece swimsuit",
+     "level": 0
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "walking",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "off shoulder",
+     "level": 1
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    }
+   ],
+   "extra": "surfboard, waves, wet hair",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_float_ring",
+   "zh": "浮床 · 仰面漂流水（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "水面上慵懒的日光浴",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "poolside",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "micro bikini",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "float, sunbathing, sunscreen",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_shower_peek",
+   "zh": "淋浴间 · 玻璃水雾（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "毛玻璃后的朦胧轮廓",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "showering",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand in own hair",
+     "level": 0
+    },
+    {
+     "field": "texture_fx",
+     "lab": "质感特效",
+     "en": "soft focus",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "water drop",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    }
+   ],
+   "extra": "wet hair, steam, glass door",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_watergun_fight",
+   "zh": "水枪 · 湿身对射（擦边）",
+   "group": "sfw",
+   "theme": "夏",
+   "desc": "被水淋透的白 Tee",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "park",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "t-shirt",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "short shorts",
+     "level": 1
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "jumping",
+     "level": 0
+    },
+    {
+     "field": "cloth_state_sfw",
+     "lab": "穿着方式",
+     "en": "midriff peek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    }
+   ],
+   "extra": "water gun, wet hair, splashes",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_ol_overtime",
+   "zh": "OL · 加班趴桌（擦边）",
+   "group": "sfw",
+   "theme": "职场",
+   "desc": "深夜办公室的领口与疲态",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "office",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "office lady",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "lying",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "rim lighting",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    }
+   ],
+   "extra": "documents, midnight, loosened tie",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_maid_serving",
+   "zh": "女仆 · 弯腰奉茶（擦边）",
+   "group": "sfw",
+   "theme": "职场",
+   "desc": "俯拍视角下的围裙领口",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "cafe",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "maid",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "bent over",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "bird's eye view",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own hip",
+     "level": 0
+    }
+   ],
+   "extra": "teacup, frills, cafe",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_nurse_rounds",
+   "zh": "护士 · 抬腿查房（擦边）",
+   "group": "sfw",
+   "theme": "职场",
+   "desc": "白丝与护士裙的查房剪影",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "hallway",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "nurse",
+     "level": 0
+    },
+    {
+     "field": "socks",
+     "lab": "腿上",
+     "en": "white thighhighs",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leg up",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    }
+   ],
+   "extra": "clipboard, hospital",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_classroom_openwin",
+   "zh": "学园 · 开窗风起（擦边）",
+   "group": "sfw",
+   "theme": "约会",
+   "desc": "教室窗边被风掀起的裙摆",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "classroom",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "school uniform",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "skirt pull",
+     "level": 1
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "wind",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "surprised",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "desk, curtain, after school",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_jk_bike_ride",
+   "zh": "学园 · 单车后座（擦边）",
+   "group": "sfw",
+   "theme": "出行",
+   "desc": "侧坐后座的裙摆与风",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "street",
+     "level": 0
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "serafuku",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "skirt pull",
+     "level": 1
+    },
+    {
+     "field": "action",
+     "lab": "动态动作",
+     "en": "walking",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "bicycle, seaside road",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_yoga_mat",
+   "zh": "瑜伽 · 下犬式（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "俯拍视角下的拉伸曲线",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "apartment",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "sports bra",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "yoga pants",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "bent over",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from above",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    }
+   ],
+   "extra": "yoga mat, stretching",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_gym_mirror",
+   "zh": "健身房 · 镜前深蹲（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "镜面与运动装的贴合",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "fitting room",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "sports bra",
+     "level": 0
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "bike shorts",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "squatting",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hands on own thighs",
+     "level": 1
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "dumbbell, mirror, sweat",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_gymnastics_split",
+   "zh": "体操 · 站立一字马（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "柔韧度展示的绷直腿线",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "rooftop",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing split",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leg up",
+     "level": 1
+    },
+    {
+     "field": "outfit",
+     "lab": "整套服装",
+     "en": "gym uniform",
+     "level": 0
+    },
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "morning light",
+     "level": 0
+    },
+    {
+     "field": "weather",
+     "lab": "天气氛围",
+     "en": "clear sky",
+     "level": 0
+    }
+   ],
+   "extra": "leotard, flexibility",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_jog_rest",
+   "zh": "慢跑 · 长椅休息（擦边）",
+   "group": "sfw",
+   "theme": "日常",
+   "desc": "运动后的微汗与抬腿",
+   "level": 1,
+   "fields": [
+    {
+     "field": "place",
+     "lab": "地点",
+     "en": "park",
+     "level": 0
+    },
+    {
+     "field": "top",
+     "lab": "上装与外套",
+     "en": "crop top",
+     "level": 1
+    },
+    {
+     "field": "bottom",
+     "lab": "下装",
+     "en": "gym shorts",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leg up",
+     "level": 1
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "water bottle, sweat, bench",
+   "extra_count": 3
+  },
+  {
+   "id": "sc_cam_wide_low_side",
+   "zh": "广角仰视 · 侧身对峙步（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "contrapposto",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hair flip",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smug",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    }
+   ],
+   "extra": "wide angle, low angle view, wide stance, foreshortening",
+   "extra_count": 4
+  },
+  {
+   "id": "sc_cam_med_high_kneel",
+   "zh": "中景俯视 · 跪趴朝镜头（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from behind",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "cowboy shot",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "all fours",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "from above",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_fisheye_squat",
+   "zh": "鱼眼仰视 · 蹲姿（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "fisheye",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "squatting",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hands on own thighs",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smug",
+     "level": 0
+    }
+   ],
+   "extra": "wide angle, low angle view",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_cam_bird_lying",
+   "zh": "鸟瞰全景 · 仰躺（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "bird's eye view",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "on back",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "arms_hands",
+     "lab": "手部动作",
+     "en": "hand on own cheek",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "from above",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_pov_stand",
+   "zh": "第一人称 · 仰望站立（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "first-person view, pov",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hands on own thighs",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking at viewer",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    }
+   ],
+   "extra": "from below, low angle view",
+   "extra_count": 2
+  },
+  {
+   "id": "sc_cam_low_stretch",
+   "zh": "仰视 · 踮脚伸懒腰（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from below",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "stretching",
+     "level": 1
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "light_fx",
+     "lab": "光效氛围",
+     "en": "backlighting",
+     "level": 0
+    }
+   ],
+   "extra": "low angle view",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_side_hairflip",
+   "zh": "侧身全景 · 甩发（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "from side",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "hair flip",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "wide angle",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_dutch_wall",
+   "zh": "斜角镜头 · 靠墙抬腿（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "dutch angle",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "against wall",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leg up",
+     "level": 1
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smug",
+     "level": 0
+    }
+   ],
+   "extra": "low angle view",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_ots_lookback",
+   "zh": "过肩视角 · 回眸（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "over-the-shoulder shot",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "standing",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "arched back",
+     "level": 1
+    },
+    {
+     "field": "eye_gaze",
+     "lab": "眼神",
+     "en": "looking back",
+     "level": 0
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "embarrassed, blush",
+     "level": 0
+    }
+   ],
+   "extra": "from behind",
+   "extra_count": 1
+  },
+  {
+   "id": "sc_cam_worm_sit",
+   "zh": "贴地超广角 · 坐姿长腿（擦边）",
+   "group": "sfw",
+   "theme": "镜头实验",
+   "desc": "镜头×姿势模板（不带地点，地点由随机抽取）",
+   "level": 1,
+   "fields": [
+    {
+     "field": "viewpoint",
+     "lab": "视角",
+     "en": "worm's eye view",
+     "level": 0
+    },
+    {
+     "field": "pose_base",
+     "lab": "基础姿势",
+     "en": "sitting",
+     "level": 0
+    },
+    {
+     "field": "shot_size",
+     "lab": "景别",
+     "en": "full body",
+     "level": 0
+    },
+    {
+     "field": "pose_risque",
+     "lab": "暗示姿势",
+     "en": "leaning back",
+     "level": 1
+    },
+    {
+     "field": "emotion",
+     "lab": "情绪",
+     "en": "smug",
+     "level": 0
+    }
+   ],
+   "extra": "wide angle, foreshortening, ground level",
+   "extra_count": 3
+  }
+ ],
+ "counters": {
+  "scenes": 122,
+  "groups": 2,
+  "by_level": {
+   "0": 30,
+   "1": 38,
+   "2": 16,
+   "3": 29,
+   "4": 9
+  }
+ }
+}

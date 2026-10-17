@@ -1,0 +1,307 @@
+{
+  "id": "anima-v3-standalone-prompt",
+  "revision": 0,
+  "last_node_id": 103,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -40,
+        -300
+      ],
+      "size": [
+        560,
+        250
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "【这是什么】\nAnima 提示词随机生成（V3）的「独立提示词输出」工作流。\n\n不出图、**不需要任何模型或 LoRA**，是验证\"插件装没装成功\"最快的方式：\n装好插件重启 ComfyUI，打开这份工作流点「运行」，看下面两个文本框有没有出东西。\n\n① 出题 —— 唯一需要你调的节点。\n   点节点上的「⚙ 打开随机面板」可视化调档位与三层权重；\n   也可以直接改控件：nsfw_level（档位）/ seed（-1=每次重抽）/ tag_cap 等。\n\n② 审查 —— 把抽出来的提示词喂回造型台那套判定表，\n   告诉你它实际落在第几档、命中了哪些成人向分类。\n\n③ 导出 —— 写盘到 output/AnimaV3_prompts/ 下。\n\n【改词库】\n词库唯一真源是《ANIMA提示词生成器.html》（不在本仓库内，见 NOTICE.md 与 docs/MAINTAINERS.md）。\n改完要重跑 node tools/export_v3_pools.mjs 与\npython tools/classify_v3_levels.py，再跑 python tests/run_all.py 确认没漂移。\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "pos": [
+        -40,
+        20
+      ],
+      "size": [
+        560,
+        130
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "【怎么接进真正的出图工作流】\n打开 Anima_工作流V3_接入V3随机提示词.json（本插件附带的接入版），\n或照下面两步手动接：\n\n  1. 拖入本插件的「Anima 提示词随机生成（V3）」节点；\n  2. 把它的 text 输出连到 CR Text 节点（编号 1004，即「全局正文」）\n     那个**空着的 text 输入端口**。\n\n连上之后六条底模流会自动全部吃到；拔掉线就回到手写文本框，可随时对照。\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 100,
+      "type": "AnimaV3RandomPrompt",
+      "pos": [
+        -40,
+        210
+      ],
+      "size": [
+        380,
+        250
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            1,
+            2
+          ]
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "level",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "cn_summary",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimaV3RandomPrompt",
+        "cnr_id": "Comfyui-Anima-Wardrobe-V3"
+      },
+      "widgets_values": [
+        "sfw",
+        -1,
+        "自动",
+        0.65,
+        "",
+        "",
+        "",
+        "",
+        "",
+        true,
+        "",
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 101,
+      "type": "AnimaV3PromptGrader",
+      "pos": [
+        400,
+        210
+      ],
+      "size": [
+        420,
+        160
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "num",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "level",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnimaV3PromptGrader",
+        "cnr_id": "Comfyui-Anima-Wardrobe-V3"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 102,
+      "type": "CR Save Text To File",
+      "pos": [
+        880,
+        210
+      ],
+      "size": [
+        420,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "multiline_text",
+          "type": "STRING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Save Text To File",
+        "cnr_id": "ComfyUI_Comfyroll_CustomNodes"
+      },
+      "widgets_values": [
+        "",
+        "output/AnimaV3_prompts",
+        "V3_正文",
+        "txt"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 103,
+      "type": "CR Save Text To File",
+      "pos": [
+        880,
+        380
+      ],
+      "size": [
+        420,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "multiline_text",
+          "type": "STRING",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Save Text To File",
+        "cnr_id": "ComfyUI_Comfyroll_CustomNodes"
+      },
+      "widgets_values": [
+        "",
+        "output/AnimaV3_prompts",
+        "V3_审查",
+        "txt"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      1,
+      100,
+      0,
+      101,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      100,
+      0,
+      102,
+      0,
+      "STRING"
+    ],
+    [
+      3,
+      101,
+      3,
+      103,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "ANIMA-V3 提示词独立输出链路（不出图）",
+      "bounding": [
+        -70,
+        180,
+        1400,
+        380
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.75,
+      "offset": [
+        200,
+        300
+      ]
+    }
+  },
+  "version": 0.4
+}

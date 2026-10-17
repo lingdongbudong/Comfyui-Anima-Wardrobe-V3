@@ -1,0 +1,27 @@
+# ── Python 运行产物 ──────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ── 开发期临时/备份 ─────────────────────────────────────────
+# HTML 备份与临时调试产物，不进版本库
+_tmp_*/
+*.bak-*
+*.bak
+
+# ── 抓取缓存（可由 tools 脚本重建，13+ MB）──────────────────
+# build_characters / build_playable_roles 抓 wiki 的原始响应缓存
+tools/.cache_chars/
+tools/.cache_roles/
+
+# ── 本机运行数据（插件运行时自动重建，属个人数据）────────────
+# 收藏的角色与命名预设因人而异，随仓库分发空模板，运行产物不入库
+presets/user_favorites.json
+presets/user_presets.json
+# 用户编辑/自定义角色覆盖层
+presets/user_characters.json
+# 用户自传的角色缩略图目录（thumbs/ 仓库内的是出厂图鉴）
+presets/user_thumbs/
+
+# ── 系统杂物 ────────────────────────────────────────────────
+Thumbs.db
+.DS_Store

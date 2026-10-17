@@ -1,0 +1,9 @@
+# 统一入库为 LF，保证跨平台 diff 干净
+* text=auto eol=lf
+
+# 二进制文件
+*.png binary
+*.webp binary
+*.zip binary
+*.mp3 binary
+*.wav binary
