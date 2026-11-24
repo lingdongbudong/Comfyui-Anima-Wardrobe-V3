@@ -1,7 +1,27 @@
 # Comfyui-Anima-Wardrobe-V3
 
+<p align="right">
+  <b>中文</b> ｜ <a href="README.en.md">English</a>
+</p>
+
+> [!CAUTION]
+> **⛔ 未经许可禁止商用 · 禁止二次包装分发** —— 版权所有 © 2026 灵冻不冻（lingdongbudong），保留所有权利。
+> 本仓库自 **2026-11-24** 起采用 **[PolyForm Strict License 1.0.0](LICENSE)**。
+>
+> - **❌ 禁止商业使用** —— 未经书面许可，不得将本插件（含源码、词库、场景库、角色库、服装库、预设数据及任何衍生物）用于任何商业目的：付费分发、捆绑销售、代跑收费、商业课程、以本插件作为商业服务的技术底座等。
+> - **❌ 禁止二次包装与再分发** —— 不得重新打包、改名、套壳、二次封装发布，不得上传至第三方整合包、网盘合集、资源站或任何分发渠道，**无论是否修改**。
+> - **❌ 禁止移除或篡改**本声明、作者署名与来源链接。
+> - **✅ 允许** —— 个人非商业使用（研究、学习、爱好、自己出图）、修改源码自用；保留完整署名与本声明的前提下引用截图／录屏做非商业分享（如 B 站教程）。
+>
+> **商业 / 二次开发 / 转载授权** → [B 站私信作者](https://space.bilibili.com/516891894) 取得书面许可。
+> **历史版本**：本次变更前发布的版本仍按其发布时的许可证（MIT）授权，不因本次变更而撤回。
+> 完整条款与来源声明见 **[NOTICE.md](NOTICE.md)**。
+
+---
+
+
 ![Version](https://img.shields.io/badge/version-v3.17.2-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-PolyForm%20Strict%201.0.0-red)
 ![Platform](https://img.shields.io/badge/platform-ComfyUI-orange)
 ![Dependencies](https://img.shields.io/badge/dependencies-zero-success)
 
@@ -1096,9 +1116,12 @@ python tests/run_all.py 500      # 更狠
 
 ## 十三、许可证与来源
 
-- 本项目按 **[MIT License](LICENSE)** 开源。
+- 本项目自 **2026-11-24** 起按 **[PolyForm Strict 1.0.0](LICENSE)** 发布：
+  ❌ 禁止商业使用 · ❌ 禁止二次包装与再分发（无论是否修改）· ✅ 允许个人非商业使用。
+- **历史版本**（2026-11-24 之前）仍按 **MIT License** 授权，不因本次变更而撤回。
 - 词库与生成逻辑移植自《ANIMA提示词生成器.html》，**已获原作者「飞蓬」授权开源**，
   详见 [NOTICE.md](NOTICE.md)。
 - 角色缩略图抓取自 safebooru.donmai.us，图片著作权归各原画师所有，仅作图鉴索引，
-  详见 [NOTICE.md](NOTICE.md) 第二节。
+  详见 [NOTICE.md](NOTICE.md)。
 - 角色名与作品名等知识产权归各自权利人所有；本插件不随之提供任何图像内容。
+- 商业 / 二次开发 / 转载授权 → [B 站私信](https://space.bilibili.com/516891894)。
